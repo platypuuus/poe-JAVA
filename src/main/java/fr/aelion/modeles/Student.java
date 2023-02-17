@@ -29,6 +29,14 @@ public class Student {
         this.email = email;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
     public Boolean login(String username, String password) {
         if (this.username.equals(username) && this.password.equals(password)) {
             isLoggedIn = true;

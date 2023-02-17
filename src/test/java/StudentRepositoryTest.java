@@ -17,6 +17,8 @@ public class StudentRepositoryTest {
     @Test
     @DisplayName("Student list should have 1 element")
     public void studentInstanciationTest(){
-        assertEquals(1,stuRep.students.size());
+        assertEquals(1,stuRep.size());
     }
+
+
 }

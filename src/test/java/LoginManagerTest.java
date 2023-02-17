@@ -11,6 +11,7 @@ public class LoginManagerTest {
     @BeforeEach
     public void setup(){
         LM = new LoginManager("user","mdptest");
+
     }
 
     @Test
@@ -20,5 +21,18 @@ public class LoginManagerTest {
                 ()-> assertEquals("user",LM.getLogin()),
                 ()-> assertEquals("mdptest",LM.getPassword())
                 );
+    }
+
+    @Test
+    @DisplayName("Should return 200 0k")
+    public void goodCredentials(){
+        assertEquals("200 0k",this.LM.login());
+    }
+
+    @Test
+    @DisplayName("Should return 404")
+    public void badCredentials(){
+        LoginManager loginManager = new LoginManager("faux","fausAussi");
+        assertEquals("404 not found",loginManager.login());
     }
 }
