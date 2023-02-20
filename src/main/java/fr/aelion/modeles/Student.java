@@ -54,4 +54,14 @@ public class Student {
     public Boolean isLoggedIn() {
         return isLoggedIn;
     }
+
+    public void setEmail(String email) {
+        if(email.contains("@")){
+            this.email = email;
+        }
+    }
+
+    public void  isLoggedIn(boolean isLoggedIn) {
+        this.isLoggedIn=isLoggedIn;
+    }
 }
