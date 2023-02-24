@@ -1,31 +1,33 @@
 package fr.aelion.run;
 
-import fr.aelion.modeles.Person;
+import fr.aelion.models.Person;
 
 /**
- * @name Personrun
- * Make some person instance et apres ils se disent bonjouuuuuur
- * */
+ * @name PersonRun
+ *  Make some Person instances and make each say Hello
+ */
 public class PersonRun {
-
-    public void run(){
-
-
+    public void run() {
         Person jl = new Person();
-        jl.setFirstName("Damien");
-        jl.setLastName("Nomdefamille");
-        jl.setPhoneNumber("0666666666");
-        jl.setEmail("rien@gmail.com");
-        System.out.printf( jl.greetings());
+        jl.setLastName("Aubert");
+        jl.setFirstName("Jean-Luc");
+        jl.setPhoneNumber("06 11 11 11 11");
+        jl.setEmail("jean-luc.aubert@aelion.fr");
 
+        System.out.println("Bonjour je m'appelle " + jl.greetings());
 
-        Person bs = new Person("Saquet", "Bilbon", "0111111111", "laConte@gmail.com");
-        /** bs.firstName = "Bilbon";
-         bs.lastName = "Saquet";
-         bs.phoneNumber = "0111111111";
-         bs.email = "laConte@gmail.com";*/
-        System.out.printf( bs.greetings());
+        Person jt = new Person();
+        jt.setLastName("Talut");
+        jt.setFirstName("Jean");
+        jt.setPhoneNumber("06 44 44 44 44");
+        jt.setEmail("jean.talut@4x4.com");
 
+        System.out.println("Bonjour je m'appelle " + jt.greetings());
 
+        Person mel = new Person("Zétofré", "Mélanie,", "51 51 51 51 51", "mel@51.com");
+        System.out.println("Bonjour, je suis " + mel.greetings());
+
+        Person bond = new Person("Bond", "james.bond@mi6.co.uk");
+        System.out.println("Bonjour, je suis " + bond.greetings());
     }
 }

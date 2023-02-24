@@ -1,6 +1,8 @@
 package fr.aelion.repositories;
 
-import fr.aelion.modeles.Student;
+import fr.aelion.helpers.builders.students.StudentBuilder;
+import fr.aelion.helpers.exceptions.StudentException;
+import fr.aelion.models.Student;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,31 +10,41 @@ import java.util.List;
 public class StudentRepository {
     private List<Student> students = new ArrayList<>();
 
-    public StudentRepository() {
-        populate();
+    public StudentRepository() throws StudentException {
+        this.populate();
     }
-    public Student findByLoginAndPassword(String login,String password){
+
+    public Student findByLoginAndPassword(String login, String password) {
         for (Student student : this.students) {
-            if (student.getUsername().equals(login) && student.getPassword().equals(password)) {
+            if (student.getUsername() == login && student.getPassword() == password) {
                 return student;
             }
         }
         return null;
     }
 
-    public int size(){
+    public int size() {
         return this.students.size();
     }
-    private void populate() {
-        //genere un etudiant
-        Student stu = new Student("Jean", "Dupond", "ultimatecrash@gmail.com");
+    private void populate() throws StudentException {
+        StudentBuilder builder = StudentBuilder.getInstance();
+        builder
+                .firstName("Jean-Luc")
+                .lastName("Aubert")
+                .email("jean-luc.aubert@aelion.fr")
+                .password("truc")
+                .username("truc");
 
-        //defini ses ID
-        stu.setUsername("user");
-        stu.setPassword("mdptest");
+        this.students.add((Student) builder.build());
 
-        //Add student to list
-        this.students.add(stu);
+        builder = StudentBuilder.getInstance();
+        builder
+                .firstName("Jean")
+                .lastName("Talut")
+                .email("jean.talut@voiture.com")
+                .password("truc")
+                .username("truc");
+
 
     }
 }
