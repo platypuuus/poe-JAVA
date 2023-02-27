@@ -1,7 +1,7 @@
 package fr.aelion.services.courses;
 
-import fr.aelion.modeles.course.Media;
-import fr.aelion.modeles.course.Video;
+import fr.aelion.models.course.Media;
+import fr.aelion.models.course.Video;
 import fr.aelion.repositories.course.Course;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -21,7 +21,6 @@ class DisplayCoursesTest {
         Media video = new Video();
         video.setTitle("titre vidéo");
         course.setTitle(("Titre du cours"));
-        course.addMedia(video);
 
         DC.setCourse(course);
 

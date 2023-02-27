@@ -1,9 +1,7 @@
 package fr.aelion.helpers;
 
 import fr.aelion.helpers.interfaces.Builder;
-import fr.aelion.modeles.course.*;
-
-import java.util.Optional;
+import fr.aelion.models.course.*;
 
 public class MediaBuilder implements Builder<Media> {
     private String title;
