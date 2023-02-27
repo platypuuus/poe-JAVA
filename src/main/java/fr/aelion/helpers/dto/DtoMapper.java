@@ -27,9 +27,14 @@ public class DtoMapper {
         }
         i = 0;
         for (String property : fields) {
-            String getter = "get" + property.substring(0, 1).toUpperCase() + property.substring(1);
-            Method method = m.getClass().getSuperclass().getDeclaredMethod(getter, null);
-            oFields[i].set(o, method.invoke(m, null));
+            if (property != "mediaType") {
+
+                String getter = "get" + property.substring(0, 1).toUpperCase() + property.substring(1);
+                Method method = m.getClass().getSuperclass().getDeclaredMethod(getter, null);
+                oFields[i].set(o, method.invoke(m, null));
+            } else {
+                oFields[i].set(o,m.getClass().getSimpleName().substring(0,1).toUpperCase());
+            }
             i++;
         }
 
