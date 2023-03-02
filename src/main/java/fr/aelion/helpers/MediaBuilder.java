@@ -1,4 +1,4 @@
-package fr.aelion.helpers;
+/**package fr.aelion.helpers;
 
 import fr.aelion.helpers.interfaces.Builder;
 import fr.aelion.models.course.*;
@@ -68,4 +68,4 @@ public class MediaBuilder implements Builder<Media> {
 
         return media;
     }
-}
+}*/
