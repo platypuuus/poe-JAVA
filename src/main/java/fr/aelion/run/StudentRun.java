@@ -17,7 +17,7 @@ public class StudentRun {
                     .password("dacodemaniak")
                     .build();
             // Le Student voudrait dire bonjour...
-            student.setStrategy(new LastNameFirstNameStrategy());
+            //student.setStrategy(new LastNameFirstNameStrategy());
             System.out.println("Bonjour je suis " + student);
         } catch (StudentException e) {
             System.out.println(e.getMessage());
