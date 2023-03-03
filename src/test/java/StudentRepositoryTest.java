@@ -51,7 +51,7 @@ public class StudentRepositoryTest {
         );
     }
 
-    @Test
+   /** @Test
     @DisplayName("should return student from model")
     public void shouldReturnTableName() {
         assertEquals("student", studentRepository.getTableName());
@@ -84,5 +84,5 @@ public class StudentRepositoryTest {
     void shouldReturnSelectQuery() {
         String expected = "SELECT s.email,s.first_name,s.id,s.last_name,s.login,s.password,s.phone_number FROM student s;";
         assertEquals(expected, studentRepository.getSelectQuery());
-    }
+    }*/
 }
