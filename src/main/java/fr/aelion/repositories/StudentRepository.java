@@ -2,8 +2,6 @@ package fr.aelion.repositories;
 
 import fr.aelion.dbal.DbConnect;
 import fr.aelion.dbal.postgres.PgConnect;
-import fr.aelion.helpers.builders.students.StudentBuilder;
-import fr.aelion.helpers.exceptions.StudentException;
 import fr.aelion.models.Student;
 
 import java.sql.Connection;
@@ -13,14 +11,16 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentRepository {
+public class StudentRepository extends Repository<Student>{
     private List<Student> students = new ArrayList<>();
     private DbConnect dbConnect;
 
-    public StudentRepository() throws StudentException {
+
+
+    public StudentRepository (Class<Student> className) throws SQLException {
+        super(className);
         this.dbConnect = PgConnect.getInstance();
     }
-
     public List<Student> findAll() throws SQLException {
         ArrayList<Student> students = new ArrayList<>();
         String sqlQuerry = "select id, last_name,first_name,email,phone_number,login,password ";
@@ -36,7 +36,7 @@ public class StudentRepository {
             student.setFirstName(resultSet.getString("first_name"));
             student.setEmail(resultSet.getString("email"));
             student.setPhoneNumber(resultSet.getString("phone_number"));
-            student.setUsername(resultSet.getString("login"));
+            student.setLogin(resultSet.getString("login"));
             student.setPassword(resultSet.getString("password"));
 
             students.add(student);
@@ -63,7 +63,7 @@ public class StudentRepository {
         student.setFirstName(resultSet.getString("first_name"));
         student.setEmail(resultSet.getString("email"));
         student.setPhoneNumber(resultSet.getString("phone_number"));
-        student.setUsername(resultSet.getString("login"));
+        student.setLogin(resultSet.getString("login"));
         student.setPassword(resultSet.getString("password"));
 
 
@@ -72,6 +72,7 @@ public class StudentRepository {
         this.dbConnect.disconnect();
         return student;
     }
+
 
 
 }

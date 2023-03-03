@@ -4,12 +4,14 @@ import fr.aelion.helpers.exceptions.StudentException;
 import fr.aelion.models.Student;
 import fr.aelion.repositories.StudentRepository;
 
+import java.sql.SQLException;
+
 public class LoginManager {
     private String login;
     private String password;
 
-    private StudentRepository studentRepository = new StudentRepository();
-    public LoginManager(String login, String password) throws StudentException {
+    private StudentRepository studentRepository = new StudentRepository(Student.class);
+    public LoginManager(String login, String password) throws StudentException, SQLException {
         this.login = login;
         this.password = password;
     }

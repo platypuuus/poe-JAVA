@@ -1,23 +1,20 @@
 package fr.aelion.models;
 
-import fr.aelion.helpers.strategies.student.FirstNameLastNameStrategy;
-import fr.aelion.helpers.strategies.student.IHelloStrategy;
-
 public class Student extends Person {
     public int getId() {
         return id;
     }
 
     private int id;
-    private String username;
+    private String login;
     private String password;
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public void setPassword(String password) {
@@ -31,8 +28,8 @@ public class Student extends Person {
         }
     }
 
-    public String getUsername() {
-        return username;
+    public String getLogin() {
+        return login;
     }
 
     public String getPassword() {
